@@ -1,25 +1,28 @@
 export const FormCreateProductComponent = {
 	templateUrl: 'home-page/form-create-product/form-create-product.html',
 	controller: class FormCreateProductComponent {
-		constructor() {
+		constructor(CatalogService) {
 			'ngInject';
+			this.CatalogService = CatalogService;
 		}
 
 		$onInit() {
-			this.categories = [
-				{
-					id: 12345,
-					label: 'Televisor'
-				},
-				{	
-					id: 123123,
-					label: 'Software'
-				}
+			this.getCategories();
+			this.getBrands();
+		}
 
-			];
-			$(document).ready(function () { //eslint-disable-line no-undef
-				$('select').material_select(); //eslint-disable-line no-undef
-			});
+		getCategories() {
+			this.CatalogService.getCategories()
+				.then(categories => {
+					this.categories = categories;
+				});
+		}
+
+		getBrands() {
+			this.CatalogService.getBrands()
+				.then(brands => {
+					this.brands = brands;
+				});
 		}
 	}
 };
