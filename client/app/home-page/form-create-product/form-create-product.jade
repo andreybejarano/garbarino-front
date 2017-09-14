@@ -1,0 +1,33 @@
+.row
+	form.col.s12
+		.row
+			.input-field.col.s6
+				input(type="text" name="nameProduct" id="nameProduct")
+				label(for="nameProduct") Nombre
+			.input-field.col.s6
+				input(type="text" name="brandProduct" id="brandProduct")
+				label(for="brandProduct") Marca
+		.row
+			.input-field.col.s6
+				input(type="number" name="priceProduct" id="priceProduct")
+				label(for="priceProduct") Precio
+			.input-field.col.s6
+				input(type="number" name="priceListProduct" id="priceListProduct")
+				label(for="priceListProduct") Precio de lista
+		.row
+			.col.s6
+				label.label-select(for="categoryProduct") Selecciona categoria 
+				select.browser-default(name="categoryProduct" id="categoryProduct" ng-options="category as category.label for category in $ctrl.categories track by category.id" ng-model="$ctrl.categoryProduct")
+					option(value="") &nbsp;
+			.col.s6
+				label(for="typeProduct") &nbsp;
+				.switch
+					label
+						| Fisico
+						input(type='checkbox' id="typeProduct" name="typeProduct" ng-model="$ctrl.typeProduct")
+						span.lever
+						|  Virtual
+		.row
+			button.col.s2.offset-s5.btn.waves-effect.waves-light(type='submit' name='sendProduct') 
+				| Grabar 
+				i.material-icons.right send

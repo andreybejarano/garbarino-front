@@ -1,0 +1,19 @@
+.card
+	.card-image
+		img(ng-src="/garbarino-front/build/images/{{$ctrl.product.img}}")
+	.card-content
+		h5 {{$ctrl.product.name}}
+		ul
+			li 
+				b Precio: 
+				span ARS {{$ctrl.product.price}}
+			li 
+				b Precio de lista: 
+				span ARS {{$ctrl.product.list_price}}
+			li 
+				b Categoria: 
+				span {{$ctrl.product.category_id}}
+			li(ng-if="$ctrl.product.virtual") 
+				b Producto virtual
+				
+	

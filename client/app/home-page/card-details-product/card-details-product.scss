@@ -1,0 +1,15 @@
+card-details-product {
+	.card {
+		.card-content {
+			min-height: 235px;
+		}
+		.card-image {
+			height: 180px;
+			padding-top: 8px;
+			img {
+				margin: auto;
+				width: 80%;
+			}
+		}
+	}
+}

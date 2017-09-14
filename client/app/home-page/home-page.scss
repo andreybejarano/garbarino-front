@@ -1,3 +1,48 @@
+@import "form-create-product/form-create-product";
+@import "card-details-product/card-details-product";
 home-page {
+	.btn {
+		background-color: #0084e0;
+	}
 
+	.label-select {
+		left: 0.75rem;
+		color: #000;
+		font-size: 1rem;
+	}
+
+	.switch label input[type=checkbox]:checked + .lever {
+		background-color: #28A6FA;
+	}	
+	.switch label input[type=checkbox]:checked + .lever:after {
+		background-color: #0084e0;
+	}
+
+	.btn:focus {
+		background-color: #0A76BE;		
+	}
+	.btn:hover {
+		background-color: #0A76BE;		
+	}
+
+	input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+		border-bottom: 1px solid #0084e0;
+		-webkit-box-shadow: 0 1px 0 0 #0084e0;
+		box-shadow: 0 1px 0 0 #0084e0;
+	}
+
+	input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-default):focus:not([readonly]) + label, input[type=password]:not(.browser-default):focus:not([readonly]) + label, input[type=email]:not(.browser-default):focus:not([readonly]) + label, input[type=url]:not(.browser-default):focus:not([readonly]) + label, input[type=time]:not(.browser-default):focus:not([readonly]) + label, input[type=date]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, input[type=tel]:not(.browser-default):focus:not([readonly]) + label, input[type=number]:not(.browser-default):focus:not([readonly]) + label, input[type=search]:not(.browser-default):focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+		color: #0084e0;
+	}
+
+	.modal {
+		max-height: 100%;
+		.modal-content {
+			padding-bottom: 0px;
+		}
+	}
+
+	.container-buttons {
+		margin-top: 24px;		
+	}
 }
