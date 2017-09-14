@@ -1,0 +1,16 @@
+extends base
+block head
+	//- inject:css
+	link(rel="stylesheet", href="/garbarino-front/build/garbarino-front-lib.css")
+	link(rel="stylesheet", href="/garbarino-front/build/garbarino-front.css")
+	//- endinject
+block footer
+	//- inject:js
+	script(src="/garbarino-front/build/garbarino-front-lib.js")
+	script(src="/garbarino-front/build/garbarino-front.js")
+	//- endinject
+	script(src="//cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.6/angular-locale_#{domain.locale.toLowerCase()}.min.js")
+	script.
+		(function () {
+			angular.bootstrap(document, ['garbarinofront'], {strictDi: true});
+		})();

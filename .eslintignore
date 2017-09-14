@@ -1,0 +1,4 @@
+client/vendor/*
+build/*
+docs/*
+node_modules/*
