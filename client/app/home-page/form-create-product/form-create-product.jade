@@ -1,34 +1,34 @@
 .row
-	form.col.s12
+	form.col.s12(ng-submit="$ctrl.onSendProduct()" autocomplete="off")
 		.row
 			.input-field.col.s12
-				input(type="text" name="nameProduct" id="nameProduct")
+				input(type="text" name="nameProduct" ng-model="$ctrl.productForm.nameProduct" id="nameProduct" required)
 				label(for="nameProduct") Nombre
 		.row
-			.col.s3
+			.col.xl4.l4.m4.s12
 				label.label-select(for="categoryProduct") Categoria 
-				select.browser-default(name="categoryProduct" id="categoryProduct" ng-options="category as category.description for category in $ctrl.categories track by category.id" ng-model="$ctrl.categoryProduct")
+				select.browser-default(name="categoryProduct" ng-model="$ctrl.productForm.categoryProduct" id="categoryProduct" ng-options="category as category.description for category in $ctrl.categories track by category.id" required)
 					option(value="") Selecciona
-			.col.s3
+			.col.xl4.l4.m4.s12
 				label.label-select(for="brandProduct") Marca 
-				select.browser-default(name="brandProduct" id="brandProduct" ng-options="brand as brand for brand in $ctrl.brands track by brand" ng-model="$ctrl.brandProduct")
+				select.browser-default(name="brandProduct" ng-model="$ctrl.productForm.brandProduct" id="brandProduct" ng-options="brand as brand for brand in $ctrl.brands track by brand" required)
 					option(value="") Selecciona
-			.col.s3
+			.col.xl4.l4.m4.s12
 				label(for="typeProduct") &nbsp;
 				.switch
 					label
 						| Fisico
-						input(type='checkbox' id="typeProduct" name="typeProduct" ng-model="$ctrl.typeProduct")
+						input(type='checkbox' ng-model="$ctrl.productForm.typeProduct" id="typeProduct" name="typeProduct")
 						span.lever
 						|  Virtual
 		.row
-			.input-field.col.s6
-				input(type="number" name="priceProduct" id="priceProduct")
+			.input-field.col.xl6.l6.m6.s12
+				input(type="number" name="priceProduct" ng-model="$ctrl.productForm.priceProduct" id="priceProduct" required step="any")
 				label(for="priceProduct") Precio
-			.input-field.col.s6
-				input(type="number" name="priceListProduct" id="priceListProduct")
+			.input-field.col.xl6.l6.m6.s12
+				input(type="number" name="priceListProduct" ng-model="$ctrl.productForm.priceListProduct" id="priceListProduct" required step="any")
 				label(for="priceListProduct") Precio de lista
 		.row
-			button.col.s2.offset-s5.btn.waves-effect.waves-light(type='submit' name='sendProduct') 
+			button.col.xl2.l2.m4.s12.offset-xl5.offset-l5.offset-m4.btn.waves-effect.waves-light(type='submit' name='sendProduct') 
 				| Grabar 
 				i.material-icons.right send

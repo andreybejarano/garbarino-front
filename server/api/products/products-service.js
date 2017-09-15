@@ -6,28 +6,67 @@ class ProductsService {
 		this.endpoints = config.endpoints;
 	}
 
-	getProducts() {
+	saveProduct(product) {
 		return new Promise((resolve, reject) => {
-			let options = {
-				method: 'GET',
-				uri: 'http://localhost:3000/api/products/list',
-				json: true
+			const options = {
+				method: 'POST',
+				uri: 'http://localhost:3000/api/products/save',
+				json: true,
+				body: this.transformerProductForRequest(product),
+				resolveWithFullResponse: true
 			};
 			request(options)
-				.then(response => {
-					resolve(this.transformerProductsResponse(response));
+				.then((response) => {
+					resolve(this.transformerProductApiResponse(response));
 				})
-				.catch(error => {
+				.catch((error) => {
 					reject(error);
 				});
 		});
 	}
 
+	transformerProductForRequest(product) {
+		let response = {
+			name: product.nameProduct,
+			price: product.priceProduct,
+			list_price: product.priceListProduct,
+			brand: product.brandProduct,
+			category_id: product.categoryProduct.id,
+			virtual: product.typeProduct || false 
+
+		};
+
+		return response;
+	}
+
+	transformerProductApiResponse(response) {
+		return {
+			'statusCode': response.statusCode,
+			'data': response.body
+		};
+	}
+
+	getProducts() {
+		return new Promise((resolve, reject) => {
+			const options = {
+				method: 'GET',
+				uri: 'http://localhost:3000/api/products/list',
+				json: true
+			};
+			request(options)
+				.then((response) => {
+					resolve(this.transformerProductsResponse(response));
+				})
+				.catch((error) => {
+					reject(error);
+				});
+		});
+	}
 
 	transformerProductsResponse(products) {
 		const categories = CategoriesService.getCategories();
-		products.forEach(element => {
-			let category = categories.find(category => {
+		products.forEach((element) => {
+			const category = categories.find((category) => {
 				return category.id == element.category_id;
 			});
 			delete element.category_id;

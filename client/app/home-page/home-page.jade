@@ -1,17 +1,17 @@
 .container-fluid
 	.row.container-buttons
-		.col.1.offset-s11
-			button.btn-floating.btn-large.modal-trigger.blue(data-target='createProductModal')
+		.col.s3.offset-xl11.offset-l11.offset-m10.offset-s9
+			button.btn-floating.btn-large.modal-trigger.blue.tooltipped(data-target='createProductModal' data-position="bottom" data-delay="50" data-tooltip="Agregar producto")
 				i.material-icons add
 	.row
 		#createProductModal.modal
 			.modal-content
 				h4 Crear Producto
-				form-create-product
+				form-create-product(send-product="$ctrl.sendProduct($event)")
 			.modal-footer
 				button.modal-action.modal-close.waves-effect.btn-flat Cancelar
 	.row
-		card-details-product.col.s3(
+		card-details-product.col.xl3.l3.m6.s12(
 			ng-repeat="product in $ctrl.products track by $index"
 			product="product"
 		)
