@@ -10,7 +10,7 @@ class ProductsService {
 		return new Promise((resolve, reject) => {
 			const options = {
 				method: 'POST',
-				uri: 'http://localhost:3000/api/products/save',
+				uri: 'http://localhost:3000/api/products',
 				json: true,
 				body: this.transformerProductForRequest(product),
 				resolveWithFullResponse: true
@@ -50,7 +50,7 @@ class ProductsService {
 		return new Promise((resolve, reject) => {
 			const options = {
 				method: 'GET',
-				uri: 'http://localhost:3000/api/products/list',
+				uri: 'http://localhost:3000/api/products',
 				json: true
 			};
 			request(options)
